@@ -1,7 +1,7 @@
 import LoginComponent from './components/LoginComponent/LoginComponent';
 import './App.css';
 
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import CadastroComponent from './components/CadastroComponent/CadastroComponent';
 import CadastroVeiculoComponent from './components/CadastroVeiculoComponent/CadastroVeiculoComponent';
 import { Component } from 'react';

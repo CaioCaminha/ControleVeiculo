@@ -1,5 +1,7 @@
 import { Box, Button, TextField } from "@material-ui/core";
-import React, { useEffect } from "react"
+import React, { useState } from "react"
+import { Alert } from "@material-ui/lab";
+import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 export default function CadastroComponent(){
     let nome = "";
@@ -7,6 +9,7 @@ export default function CadastroComponent(){
     let cpf = "";
     let nascimento = "";
     let password = "";
+    const [ativo, setAtivo] = useState();
 
     async function handleCadastro(nome, email, cpf, nascimento, password){
         await fetch('https://controle-veiculos-springboot.herokuapp.com/usuarios', {
@@ -21,14 +24,33 @@ export default function CadastroComponent(){
                 cpf: cpf,
                 nascimento: nascimento
             })
-        }).then(res => res.json());
+        }).then(res => {
+            if(res.ok){
+                return setAtivo(true);
+            }else{
+                return setAtivo(false);
+            }
+        });
     }
 
     return(
     <div>
-        <Link to="/login"><h3 style={{ position: "absolute", right: "20px", fontSize: "25px"}}>Já possui cadastro? Faça login</h3></Link>
+        <header style={{backgroundColor: "#F0F0F0", width: "100%", height: "80px"}}>
+            <h2 style={{fontSize: "40px", textAlign: "center", top: "20px", position: 'relative'}}>Controle Veículos</h2>
+            <Link to="/login" style={{ right: "40px", position: "absolute", fontSize: "30px", top: "20px"}}>
+                Autentique-se!
+            </Link>
+        </header>
 
-        <div style={{width: '50%', left: '20%', position: "absolute", top: "5%"}}>
+        <div style={{width: '50%', left: '20%', position: "absolute", top: "15%"}}>
+
+            {ativo === false &&
+                <Alert severity="error">Verifique os campos e tente novamente</Alert>
+            }
+
+            {ativo === true &&
+                <Redirect to="/login"/>
+            }
 
             <h1 style={{fontFamily:"inherit", fontSize: "55px", textAlign:"center"}}>Cadastro Usuário</h1>
 
@@ -67,7 +89,6 @@ export default function CadastroComponent(){
                     <Button variant="contained" color="primary" size="large"  fullWidth onClick={(event) => {
                         event.preventDefault();
                         handleCadastro(nome, email, cpf, nascimento, password);
-                        setTimeout(function(){window.location.href = 'https://controle-veiculos-front.herokuapp.com/login'}, 3000)
                     }}>CADASTRAR</Button>
                 </Link>
             </Box>

@@ -1,5 +1,5 @@
-import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@material-ui/core";
-import React, { Component, useEffect, useState } from "react"
+import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@material-ui/core";
+import React, { useEffect, useState } from "react"
 export default function ListVeiculoComponent(){
 
         const [veiculos, setVeiculos] = useState([]);
@@ -57,7 +57,7 @@ export default function ListVeiculoComponent(){
             </TableContainer>
             <Button variant="contained" color="primary" style={{position: "relative", marginTop: "3%", marginLeft: "35%", width: "30%"}} onClick={(event) => {
                 event.preventDefault();
-                window.location.href = 'https://controle-veiculos-front.herokuapp.com/veiculo'
+                window.location.href = 'http://localhost:3000/veiculo'
             }}>CADASTRAR VEICULO</Button>
             </div>
     );
