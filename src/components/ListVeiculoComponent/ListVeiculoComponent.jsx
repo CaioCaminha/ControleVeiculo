@@ -57,7 +57,7 @@ export default function ListVeiculoComponent(){
             </TableContainer>
             <Button variant="contained" color="primary" style={{position: "relative", marginTop: "3%", marginLeft: "35%", width: "30%"}} onClick={(event) => {
                 event.preventDefault();
-                window.location.href = 'http://localhost:3000/veiculo'
+                window.location.href = 'https://controle-veiculos-front.herokuapp.com/veiculo'
             }}>CADASTRAR VEICULO</Button>
             </div>
     );
