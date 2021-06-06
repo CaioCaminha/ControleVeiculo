@@ -43,7 +43,7 @@ export default function LoginComponent(){
                         <Button variant="contained" color="primary" size="large" fullWidth onClick={(event) => {
                             event.preventDefault();
                             login(cpf, password);
-                            setTimeout(function(){window.location.href = 'http://localhost:3000/home'}, 3000)
+                            setTimeout(function(){window.location.href = 'https://controle-veiculos-front.herokuapp.com/home'}, 3000)
                         }}>LOGIN</Button>
                 </Box>
             </form>

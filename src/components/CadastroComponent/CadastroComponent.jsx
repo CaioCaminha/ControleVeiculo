@@ -67,7 +67,7 @@ export default function CadastroComponent(){
                     <Button variant="contained" color="primary" size="large"  fullWidth onClick={(event) => {
                         event.preventDefault();
                         handleCadastro(nome, email, cpf, nascimento, password);
-                        setTimeout(function(){window.location.href = 'http://localhost:3000/login'}, 3000)
+                        setTimeout(function(){window.location.href = 'https://controle-veiculos-front.herokuapp.com/login'}, 3000)
                     }}>CADASTRAR</Button>
                 </Link>
             </Box>
